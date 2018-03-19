@@ -3,42 +3,30 @@ namespace BPashkevich\CategoriesContainingA\Block;
 
 class CategoriesContainingA extends \Magento\Framework\View\Element\Template
 {
-    protected $_categoryHelper;
+    protected $_categoryCollection;
+    protected $_storeManager;
 
     public function __construct(
-        \Magento\Catalog\Block\Product\Context $context,
-        \Magento\Catalog\Helper\Category $categoryHelper,
+        \Magento\Backend\Block\Template\Context $context,
+        \Magento\Store\Model\StoreManagerInterface $storeManager,
+        \Magento\Catalog\Model\ResourceModel\Category\CollectionFactory $categoryCollection,
         array $data = []
-    ) {
-        $this->_categoryHelper = $categoryHelper;
-        parent::__construct(
-            $context,
-            $data
-        );
+    )
+    {
+        $this->_categoryCollection = $categoryCollection;
+        $this->_storeManager = $storeManager;
+        parent::__construct($context, $data);
     }
 
-    /**
-     * Retrieve current store level 2 category
-     *
-     * @param bool|string $sorted (if true display collection sorted as name otherwise sorted as based on id asc)
-     * @param bool $asCollection (if true display all category otherwise display second level category menu visible category for current store)
-     * @param bool $toLoad
-     */
-
-    public function getCategoriesContainingA($sorted = false, $asCollection = false, $toLoad = true, $letter)
+    public function getCategoryCollection($letter)
     {
-        $categoriesA = [];
+        $collection = $this->_categoryCollection->create()
+            ->addAttributeToSelect('*')
+            ->setStore($this->_storeManager->getStore())
+            //->addAttributeToFilter('attribute_code', '1')
+            ->addAttributeToFilter('is_active','1')
+            ->addAttributeToFilter('Name', ['like' => '%' . $letter . '%']);
 
-        $categories = $this->_categoryHelper->getStoreCategories($sorted , $asCollection, $toLoad);
-
-        die(get_class($categories->getSelect()));
-
-
-        foreach ($categories as $category){
-            if(stristr($category->getName(), $letter) != FALSE) {
-                $categoriesA[] = $category->getName();
-            }
-        }
-        return $categoriesA;
+        return $collection;
     }
 }

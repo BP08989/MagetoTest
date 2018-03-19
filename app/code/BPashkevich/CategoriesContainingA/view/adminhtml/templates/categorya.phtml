@@ -1,5 +1,5 @@
 <?php
-$categories = $this->getCategoriesContainingA(false,false,true, 'A');
+$categories = $this->getCategoryCollection("A");
 foreach($categories as $category){
-    echo "<br>" . $category;
+    echo "<br>" . $category->getName();
 }
