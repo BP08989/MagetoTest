@@ -25,13 +25,17 @@ class CategoriesContainingA extends \Magento\Framework\View\Element\Template
      * @param bool $toLoad
      */
 
-    public function getStoreCategoriesContainingA($sorted = false, $asCollection = false, $toLoad = true)
+    public function getCategoriesContainingA($sorted = false, $asCollection = false, $toLoad = true, $letter)
     {
         $categoriesA = [];
 
         $categories = $this->_categoryHelper->getStoreCategories($sorted , $asCollection, $toLoad);
+
+        die(get_class($categories->getSelect()));
+
+
         foreach ($categories as $category){
-            if(stristr($category->getName(), 'a') != FALSE) {
+            if(stristr($category->getName(), $letter) != FALSE) {
                 $categoriesA[] = $category->getName();
             }
         }
