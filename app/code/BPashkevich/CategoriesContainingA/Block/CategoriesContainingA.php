@@ -1,7 +1,7 @@
 <?php
-namespace BPashkevich\ExampleAdminNewPage\Block;
+namespace BPashkevich\CategoriesContainingA\Block;
 
-class ExampleAdminNewPage extends \Magento\Framework\View\Element\Template
+class CategoriesContainingA extends \Magento\Framework\View\Element\Template
 {
     protected $_categoryHelper;
 
@@ -25,7 +25,7 @@ class ExampleAdminNewPage extends \Magento\Framework\View\Element\Template
      * @param bool $toLoad
      */
 
-    public function getStoreCategories($sorted = false, $asCollection = false, $toLoad = true)
+    public function getStoreCategoriesContainingA($sorted = false, $asCollection = false, $toLoad = true)
     {
         $categoriesA = [];
 

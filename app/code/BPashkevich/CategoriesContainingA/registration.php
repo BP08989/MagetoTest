@@ -2,6 +2,6 @@
 
 \Magento\Framework\Component\ComponentRegistrar::register(
         \Magento\Framework\Component\ComponentRegistrar::MODULE,
-        'BPashkevich_ExampleAdminNewPage',
+        'BPashkevich_CategoriesContainingA',
         __DIR__
     );

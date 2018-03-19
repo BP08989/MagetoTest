@@ -7,7 +7,7 @@
     </head>
     <body>
         <referenceContainer name="content">
-            <block class="BPashkevich\ExampleAdminNewPage\Block\ExampleAdminNewPage" template="BPashkevich_ExampleAdminNewPage::categorya.phtml"/>
+            <block class="BPashkevich\CategoriesContainingA\Block\CategoriesContainingA" template="BPashkevich_CategoriesContainingA::categorya.phtml"/>
         </referenceContainer>
     </body>
 </page>

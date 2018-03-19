@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="BPashkevich_CategoriesContainingA::test"
+             title="Test"
+             translate="title"
+             module="BPashkevich_CategoriesContainingA"
+             parent="Magento_Backend::system"
+             sortOrder="50"
+             dependsOnModule="BPashkevich_CategoriesContainingA"
+             resource="BPashkevich_CategoriesContainingA::test"/>
+
+        <add id="BPashkevich_CategoriesContainingA::greetings_categoryA"
+             title="CategoryA"
+             translate="title"
+             module="BPashkevich_CategoriesContainingA"
+             parent="BPashkevich_CategoriesContainingA::test"
+             sortOrder="10"
+             dependsOnModule="BPashkevich_CategoriesContainingA"
+             action="categoriescontaininga/Index"
+             resource="BPashkevich_CategoriesContainingA::test"/>
+    </menu>
+</config>

@@ -1,5 +1,5 @@
 <?php
-$categorys = $this->getStoreCategories(false,false,true);
+$categorys = $this->getStoreCategoriesContainingA(false,false,true);
 foreach($categorys as $category){
     echo "<br>" . $category;
 }
