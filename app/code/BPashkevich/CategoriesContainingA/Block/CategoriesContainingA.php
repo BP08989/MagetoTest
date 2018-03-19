@@ -3,8 +3,8 @@ namespace BPashkevich\CategoriesContainingA\Block;
 
 class CategoriesContainingA extends \Magento\Framework\View\Element\Template
 {
-    protected $_categoryCollection;
-    protected $_storeManager;
+    private $categoryCollection;
+    private $storeManager;
 
     public function __construct(
         \Magento\Backend\Block\Template\Context $context,
@@ -13,16 +13,16 @@ class CategoriesContainingA extends \Magento\Framework\View\Element\Template
         array $data = []
     )
     {
-        $this->_categoryCollection = $categoryCollection;
-        $this->_storeManager = $storeManager;
+        $this->categoryCollection = $categoryCollection;
+        $this->storeManager = $storeManager;
         parent::__construct($context, $data);
     }
 
     public function getCategoryCollection($letter)
     {
-        $collection = $this->_categoryCollection->create()
+        $collection = $this->categoryCollection->create()
             ->addAttributeToSelect('*')
-            ->setStore($this->_storeManager->getStore())
+            ->setStore($this->storeManager->getStore())
             //->addAttributeToFilter('attribute_code', '1')
             ->addAttributeToFilter('is_active','1')
             ->addAttributeToFilter('Name', ['like' => '%' . $letter . '%']);

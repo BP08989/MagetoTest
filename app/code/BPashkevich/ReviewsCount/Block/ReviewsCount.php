@@ -1,38 +1,35 @@
 <?php
 namespace BPashkevich\ReviewsCount\Block;
 
-class ReviewsCount extends \Magento\Catalog\Block\Product\View\AbstractView
+class ReviewsCount extends \Magento\Framework\View\Element\Template
 {
+    private $registry;
+    private $reviewFactory;
 
-    protected $_reviewFactory;
-
-    /**
-     * @param \Magento\Catalog\Block\Product\Context $context
-     * @param \Magento\Framework\Stdlib\ArrayUtils $arrayUtils
-     * @param array $data
-     */
     public function __construct(
-        \Magento\Catalog\Block\Product\Context $context,
-        \Magento\Framework\Stdlib\ArrayUtils $arrayUtils,
+        \Magento\Backend\Block\Template\Context $context,
+        \Magento\Framework\Registry $registry,
         \Magento\Review\Model\ReviewFactory $reviewFactory,
         array $data = []
-    ) {
-        $this->_reviewFactory = $reviewFactory;
-        $this->arrayUtils = $arrayUtils;
-        parent::__construct(
-            $context,
-            $arrayUtils,
-            $data
-        );
+    )
+    {
+        $this->reviewFactory = $reviewFactory;
+        $this->registry = $registry;
+        parent::__construct($context, $data);
+    }
+
+    private function getCurrentProduct()
+    {
+        return $this->registry->registry('current_product');
     }
 
 
     public function getReviewsCount()
     {
-        if (!$this->getProduct()->getRatingSummary()) {
-            $this->_reviewFactory->create()->getEntitySummary($this->getProduct(), $this->_storeManager->getStore()->getId());
+        if (!$this->getCurrentProduct()->getRatingSummary()) {
+            $this->reviewFactory->create()->getEntitySummary($this->getCurrentProduct(), $this->_storeManager->getStore()->getId());
         }
 
-        return $this->getProduct()->getRatingSummary()->getReviewsCount();
+        return $this->getCurrentProduct()->getRatingSummary()->getReviewsCount();
     }
 }
