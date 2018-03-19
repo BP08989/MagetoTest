@@ -1,11 +1,11 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:noNamespaceSchemaLocation="../../../../../../../lib/internal/Magento/Framework/View/Layout/etc/page_configuration.xsd">
     <head>
-        <css src="BPashkevich_Myfrontendtask/css/hello.css"/>
+        <css src="BPashkevich_ReviewsCount/css/reviewscount.css"/>
     </head>
     <body>
         <referenceBlock name="page.main.title">
-            <block class="BPashkevich\Myfrontendtask\Block\Myfrontendtask" name="myfrontendtask" template="myfrontendtask.phtml" />
+            <block class="BPashkevich\ReviewsCount\Block\ReviewsCount" name="reviewscount" template="reviewscount.phtml" />
         </referenceBlock>
     </body>
 </page>

@@ -3,7 +3,7 @@ return array (
   'modules' => 
   array (
     'BPashkevich_CategoriesContainingA' => 1,
-    'BPashkevich_Myfrontendtask' => 1,
+    'BPashkevich_ReviewsCount' => 1,
     'Magento_Store' => 1,
     'Magento_Directory' => 1,
     'Magento_AdvancedPricingImportExport' => 1,

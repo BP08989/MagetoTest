@@ -1,7 +1,7 @@
 <?php
-namespace BPashkevich\Myfrontendtask\Block;
+namespace BPashkevich\ReviewsCount\Block;
 
-class Myfrontendtask extends \Magento\Catalog\Block\Product\View\AbstractView
+class ReviewsCount extends \Magento\Catalog\Block\Product\View\AbstractView
 {
 
     protected $_reviewFactory;
@@ -27,7 +27,7 @@ class Myfrontendtask extends \Magento\Catalog\Block\Product\View\AbstractView
     }
 
 
-    public function getHelloWorldTxt()
+    public function getReviewsCount()
     {
         if (!$this->getProduct()->getRatingSummary()) {
             $this->_reviewFactory->create()->getEntitySummary($this->getProduct(), $this->_storeManager->getStore()->getId());
