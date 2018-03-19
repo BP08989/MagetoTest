@@ -1,5 +1,5 @@
 <?php
-namespace BPashkevich\ExampleAdminNewPage\Controller\Adminhtml\HelloWorld;
+namespace BPashkevich\ExampleAdminNewPage\Controller\Adminhtml\CategoryA;
 
 class Index extends \Magento\Backend\App\Action
 {

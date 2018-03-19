@@ -2,23 +2,23 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
     <menu>
-        <add id="BPashkevich_ExampleAdminNewPage::greetings"
-             title="Greetings"
+        <add id="BPashkevich_ExampleAdminNewPage::test"
+             title="Test"
              translate="title"
              module="BPashkevich_ExampleAdminNewPage"
              parent="Magento_Backend::system"
              sortOrder="50"
              dependsOnModule="BPashkevich_ExampleAdminNewPage"
-             resource="BPashkevich_ExampleAdminNewPage::greetings"/>
+             resource="BPashkevich_ExampleAdminNewPage::test"/>
 
-        <add id="BPashkevich_ExampleAdminNewPage::greetings_helloworld"
-             title="Hello World"
+        <add id="BPashkevich_ExampleAdminNewPage::greetings_categoryA"
+             title="CategoryA"
              translate="title"
              module="BPashkevich_ExampleAdminNewPage"
-             parent="BPashkevich_ExampleAdminNewPage::greetings"
+             parent="BPashkevich_ExampleAdminNewPage::test"
              sortOrder="10"
              dependsOnModule="BPashkevich_ExampleAdminNewPage"
-             action="exampleadminnewpage/helloworld"
-             resource="BPashkevich_ExampleAdminNewPage::greetings"/>
+             action="exampleadminnewpage/categoryA"
+             resource="BPashkevich_ExampleAdminNewPage::test"/>
     </menu>
 </config>
