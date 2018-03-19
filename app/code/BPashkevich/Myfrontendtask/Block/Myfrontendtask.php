@@ -1,7 +1,7 @@
 <?php
-namespace BPashkevich\Helloworld\Block;
+namespace BPashkevich\Myfrontendtask\Block;
 
-class Helloworld extends \Magento\Catalog\Block\Product\View\AbstractView
+class Myfrontendtask extends \Magento\Catalog\Block\Product\View\AbstractView
 {
 
     protected $_reviewFactory;

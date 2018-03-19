@@ -2,7 +2,8 @@
 return array (
   'modules' => 
   array (
-    'BPashkevich_Helloworld' => 1,
+    'BPashkevich_ExampleAdminNewPage' => 1,
+    'BPashkevich_Myfrontendtask' => 1,
     'Magento_Store' => 1,
     'Magento_Directory' => 1,
     'Magento_AdvancedPricingImportExport' => 1,
