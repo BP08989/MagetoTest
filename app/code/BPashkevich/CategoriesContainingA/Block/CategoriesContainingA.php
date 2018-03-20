@@ -21,11 +21,10 @@ class CategoriesContainingA extends \Magento\Framework\View\Element\Template
     public function getCategoryCollection($letter)
     {
         $collection = $this->categoryCollection->create()
-            ->addAttributeToSelect('*')
+            ->addNameToResult()
             ->setStore($this->storeManager->getStore())
-            //->addAttributeToFilter('attribute_code', '1')
             ->addAttributeToFilter('is_active','1')
-            ->addAttributeToFilter('Name', ['like' => '%' . $letter . '%']);
+            ->addAttributeToFilter('name', ['like' => '%' . $letter . '%']);
 
         return $collection;
     }

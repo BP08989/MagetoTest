@@ -26,10 +26,11 @@ class ReviewsCount extends \Magento\Framework\View\Element\Template
 
     public function getReviewsCount()
     {
-        if (!$this->getCurrentProduct()->getRatingSummary()) {
-            $this->reviewFactory->create()->getEntitySummary($this->getCurrentProduct(), $this->_storeManager->getStore()->getId());
+        $product = $this->getCurrentProduct();
+        if (!$product->getRatingSummary()) {
+            $this->reviewFactory->create()->getEntitySummary($product, $this->_storeManager->getStore()->getId());
         }
 
-        return $this->getCurrentProduct()->getRatingSummary()->getReviewsCount();
+        return $product->getRatingSummary()->getReviewsCount();
     }
 }
